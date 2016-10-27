@@ -1,4 +1,6 @@
-float radius = 100;
+float cellSize = 10;
+
+float radius = 150;
 float theta = 0;
 float a = 0;
 float r = radius;
@@ -17,7 +19,7 @@ void setup()
 void draw()
 {
   background(0);
-  
+  grid();
   shape();
   
   theta += 0.1;
@@ -31,7 +33,7 @@ void shape()
   cx = width / 2 + r * cos(theta);
   cy = height / 2 - r * sin(theta);
   
-  ellipse(cx, cy, 10, 10);
+  ellipse(cx, cy, 50, 50);
   
   theta += 0.1;
   a += 0.005;
