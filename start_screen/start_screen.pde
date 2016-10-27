@@ -7,7 +7,7 @@ float g = 0;
 
 void setup()
 {
-  size(500, 500);
+  fullScreen();
   frameRate(60);
   
   background(0);
@@ -28,8 +28,8 @@ void shape()
   float scale = 80;
   fill(0, 255, 255);
   
-  cx = 250 + r * cos(theta);
-  cy = 250 - r * sin(theta);
+  cx = width / 2 + r * cos(theta);
+  cy = height / 2 - r * sin(theta);
   
   ellipse(cx, cy, 10, 10);
   
