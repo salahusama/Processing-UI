@@ -1,6 +1,4 @@
-boolean drawn = false;
-
-void grid()
+/*
 { 
   if (!drawn) {
     stroke(255, 30);
@@ -22,4 +20,4 @@ void grid()
     drawn = true;
   }
   
-}
+}*/

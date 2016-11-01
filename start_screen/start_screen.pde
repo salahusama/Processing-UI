@@ -1,5 +1,4 @@
-float cellHeight;
-float cellWidth;
+Grid backGrid;
 
 float radius = 150;
 float theta = 0;
@@ -16,16 +15,17 @@ void setup()
   background(0);
   noStroke();
   
-  cellHeight = height / 20;
-  cellWidth = width / 20;
+  backGrid = new Grid(height, width);
 }
 
 float s = 0;
 
 void draw()
 {
-  //background(0);
-  grid();
+  // draw background grid if it is not drawn
+  if (!backGrid.drawn) {
+    backGrid.display();
+  }
   
   if (theta < 76) {
     ellipse(width / 2, height / 2, s, s);
