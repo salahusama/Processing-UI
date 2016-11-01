@@ -13,8 +13,6 @@ void setup()
   loadingShape = new Atom();
 }
 
-float s = 0;
-
 void draw()
 {
   // draw background grid if it is not drawn
