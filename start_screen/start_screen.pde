@@ -1,5 +1,7 @@
 Grid backGrid;
-Atom loadingShape;
+Load loadingShape;
+
+int state = 0; // chnages the state of the program from loading, UI, exit, etc
 
 void setup()
 {
@@ -10,15 +12,22 @@ void setup()
   noStroke();
   
   backGrid = new Grid(height, width);
-  loadingShape = new Atom();
+  loadingShape = new Load();
 }
 
 void draw()
 {
-  // draw background grid if it is not drawn
-  if (!backGrid.drawn) {
-    backGrid.display();
+  background(0);
+  switch (state)
+  {
+    case 0: // Loading Screen
+      loadingShape.display();
+      break;
+      
+    case 1: // UI
+      text("User Interface :)", 50, 50);
+      break;
   }
-  
-  loadingShape.display();
+  println(loadingShape.cSize);
+  backGrid.display();
 }

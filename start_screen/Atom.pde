@@ -1,4 +1,4 @@
-class Atom
+class Load
 {
   float size;
   float radius;
@@ -10,19 +10,20 @@ class Atom
   float cSize;
   float scale = 20;
   
-  Atom()
+  Load()
   {
     radius = 150;
     theta = 0;
-    size = 5;
+    size = 20;
     r = radius;
   }
   
   void display()
   {
+    println(theta);
     fill(0, 255, 255);
     
-    if (theta < 76) {
+    if (theta < 30) {
       ellipse(width / 2, height / 2, cSize, cSize);
       cSize += map(1, 0, 180, 0, 76);
       theta += 0.1;
@@ -36,9 +37,13 @@ class Atom
       angle += 0.1;
       r = radius + scale * sin(angle * 5);
     }
-    else {
+    else if (cSize < 2000){
       ellipse(width / 2, height / 2, cSize, cSize);
-      cSize = lerp(cSize, width * 2, 0.1);
+      cSize = lerp(cSize, width * 2, 0.02);
+    }
+    else {
+      // loading is done, switch to UI
+      state = 1;
     }
   }
 }
