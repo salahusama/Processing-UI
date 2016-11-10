@@ -25,6 +25,7 @@ void draw()
       break;
       
     case 1: // UI
+      fill(0, 255, 255);
       text("User Interface :)", 50, 50);
       break;
   }
