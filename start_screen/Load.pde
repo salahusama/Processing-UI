@@ -64,8 +64,6 @@ class Loading
     
     percent = 1 / (radius - ball.radius);
     inc = percent * (ball.centerY - centerY);
-    fill(255);
-    text("inc: " + inc, 50, 50);
     return inc;
   }
 }
