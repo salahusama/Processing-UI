@@ -4,6 +4,7 @@ class Loading
   float centerY;
   float radius;
   float theta;
+  float speed = 4;
   
   boolean grow = true;
   color sColor = color(0, 255, 255);
@@ -36,12 +37,12 @@ class Loading
     // increase size till loading is done
     if (radius < height / 2 && grow == true) 
     {
-      radius++;
+      radius += speed / 2;
     }
     // loading has completed, shrink shpere and position sphere in correct position;
     else if (radius > ball.radius)
     {
-      radius--;
+      radius -= speed;
       centerY = centerY + inc();
 
       // so it doesnt grow again
@@ -62,7 +63,7 @@ class Loading
     float inc;
     float percent;
     
-    percent = 1 / (radius - ball.radius);
+    percent = speed / (radius - ball.radius);
     inc = percent * (ball.centerY - centerY);
     return inc;
   }
