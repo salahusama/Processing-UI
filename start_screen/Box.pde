@@ -20,8 +20,8 @@ class Box
     this.startX = startX;
     this.startY = startY;
     
-    // set gap to 10%
-    gap = map(10, 0, 100, 0, bWidth);
+    // set gap to 5%
+    gap = map(5, 0, 100, 0, bWidth);
     tempWidth = gap;
     tempHeight = gap;
   }

@@ -23,6 +23,7 @@ class Grid
     float col = 0;
     
     stroke(255, 30);
+    strokeWeight(1);
     
     while (row < gridHeight) {
       line(0, cellHeight * row, gridWidth, cellHeight * row);
