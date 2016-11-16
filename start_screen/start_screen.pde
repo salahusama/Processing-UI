@@ -1,9 +1,9 @@
 Grid backGrid;
-Load loadingShape;
+Loading loadingScreen;
 Box menu;
 Sphere ball;
 
-int state = 1; // chnages the state of the program from loading, UI, exit, etc
+int state = 0; // chnages the state of the program from loading, UI, exit, etc
 
 void setup()
 {
@@ -14,7 +14,7 @@ void setup()
   noStroke();
   
   backGrid = new Grid(height, width);
-  loadingShape = new Load();
+  loadingScreen = new Loading();
   menu = new Box(backGrid.cellWidth, backGrid.cellHeight, width - (2*backGrid.cellWidth), height - (6*backGrid.cellHeight));
   ball = new Sphere(width / 2, height - 50, 80);
 }
@@ -25,7 +25,7 @@ void draw()
   switch (state)
   {
     case 0: // Loading Screen
-      loadingShape.display();
+      loadingScreen.render();
       break;
       
     case 1: // UI
