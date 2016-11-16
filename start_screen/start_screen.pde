@@ -1,5 +1,6 @@
 Grid backGrid;
 Load loadingShape;
+Box menu;
 
 int state = 0; // chnages the state of the program from loading, UI, exit, etc
 
@@ -13,6 +14,7 @@ void setup()
   
   backGrid = new Grid(height, width);
   loadingShape = new Load();
+  menu = new Box(50, 50, 200, 100);
 }
 
 void draw()
@@ -25,10 +27,8 @@ void draw()
       break;
       
     case 1: // UI
-      fill(0, 255, 255);
-      text("User Interface :)", 50, 50);
+      menu.render();
       break;
   }
-  println(loadingShape.cSize);
   backGrid.display();
 }

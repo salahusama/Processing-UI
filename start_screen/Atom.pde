@@ -8,7 +8,7 @@ class Load
   float cx, cy;
   
   float cSize;
-  float scale = 20;
+  float scale = 40;
   
   Load()
   {
@@ -36,8 +36,8 @@ class Load
       fill(255, 0, 0);
       ellipse(cx, cy, size, size);
       
-      theta += 0.1;
-      angle += 0.1;
+      theta += 0.01;
+      angle += 0.01;
       r = radius + scale * sin(angle * 5);
     }
     else if (cSize < 1800){
