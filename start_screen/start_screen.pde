@@ -2,8 +2,9 @@ Grid backGrid;
 Loading loadingScreen;
 Box menu;
 Sphere ball;
+BarChart chart1;
 
-int state = 0; // chnages the state of the program from loading, UI, exit, etc
+int state = 1; // chnages the state of the program from loading, UI, exit, etc
 
 void setup()
 {
@@ -17,6 +18,7 @@ void setup()
   loadingScreen = new Loading();
   menu = new Box(backGrid.cellWidth, backGrid.cellHeight, width - (2*backGrid.cellWidth), height - (6*backGrid.cellHeight));
   ball = new Sphere(width / 2, height - 50, 80);
+  chart1 = new BarChart(15 * backGrid.cellWidth, 14*backGrid.cellHeight, 200, 100, 10);
 }
 
 void draw()
@@ -31,6 +33,7 @@ void draw()
     case 1: // UI
       ball.render();
       menu.render();
+      chart1.draw();
       break;
   }
   backGrid.display();
