@@ -33,8 +33,36 @@ void draw()
     case 1: // UI
       ball.render();
       menu.render();
-      chart1.draw();
+      // draw content after box is drawn
+      if (menu.drawn == true)
+      {
+        chart1.display();
+      }
       break;
   }
   backGrid.display();
+}
+
+
+// key recognition
+//
+boolean[] keys = new boolean[1000];
+
+void keyPressed()
+{ 
+ keys[keyCode] = true;
+}
+
+void keyReleased()
+{
+ keys[keyCode] = false; 
+}
+
+boolean checkKey(int k)
+{
+ if (keys.length >= k) 
+ {
+   return keys[k] || keys[Character.toUpperCase(k)];  
+ }
+ return false;
 }

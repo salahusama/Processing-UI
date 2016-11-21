@@ -22,7 +22,7 @@ class BarChart
     }
   }
   
-  void draw()
+  void display()
   {
     // randomize data
     if (frameCount % 4 == 0)
@@ -42,6 +42,8 @@ class BarChart
       // start y position is the same, increment the x position by barWidth
       float startX = this.startX + (barWidth * i);
       fill(50, 160, 50);
+      stroke(255);
+      strokeWeight(1);
       rect(startX, startY, barWidth, barHeight);
     }
     noFill();

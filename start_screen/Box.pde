@@ -10,6 +10,7 @@ class Box
   float speed = 10;
   float gap;
   color bColor = color(0, 255, 255);
+  boolean drawn = false;
   
   PShape box;
   
@@ -59,6 +60,9 @@ class Box
     }
     if (tempHeight < bHeight) {
       tempHeight = tempHeight + map(speed, 0, bWidth, 0, bHeight);
+    }
+    if (tempWidth >= bWidth && tempHeight >= bHeight) {
+      drawn = true;
     }
   }
   
