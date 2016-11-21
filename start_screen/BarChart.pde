@@ -24,8 +24,20 @@ class BarChart
   
   void display()
   {
+    if ( checkKey(' ') )
+    {
+      for (int i = 0; i < barCount; i++)
+      {
+        if (data.get(i) < chartHeight) {
+          data.add(i, 5);
+        }
+        else {
+          data.add(i, random(0, 30) * -1);
+        }
+      }
+    }
     // randomize data
-    if (frameCount % 4 == 0)
+    else if (frameCount % 5 == 0)
     {
       for (int i = 0; i < barCount; i++) {
         data.set( i, random(0, chartHeight) );
@@ -41,14 +53,28 @@ class BarChart
       barHeight = -data.get(i);
       // start y position is the same, increment the x position by barWidth
       float startX = this.startX + (barWidth * i);
-      fill(50, 160, 50);
-      stroke(255);
+      //stroke(255);
       strokeWeight(1);
+      if ( data.get(i) > 0.8 * chartHeight ) {
+        fill(255, 0, 0);
+      }
+      else if ( data.get(i) > 0.6 * chartHeight ) {
+        fill(255, 255, 0);
+      }
+      else {
+        fill(50, 160, 50);
+      }
       rect(startX, startY, barWidth, barHeight);
     }
+    
+    // draw border
     noFill();
     stroke(255);
     strokeWeight(1);
     rect(startX, startY, chartWidth, -chartHeight);
+    
+    //
+    fill(255);
+    text("Press Space for Full Throtle", startX + 20, startY - chartHeight - 10);
   }
 }
