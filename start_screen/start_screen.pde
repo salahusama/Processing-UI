@@ -18,7 +18,7 @@ void setup()
   loadingScreen = new Loading();
   menu = new Box(backGrid.cellWidth, backGrid.cellHeight, width - (2*backGrid.cellWidth), height - (6*backGrid.cellHeight));
   ball = new Sphere(width / 2, height - 50, 80);
-  chart1 = new BarChart(15 * backGrid.cellWidth, 14*backGrid.cellHeight, 200, 100, 10);
+  chart1 = new BarChart(menu.startX + 14 * backGrid.cellWidth, menu.startY + 13 * backGrid.cellHeight, 200, 100, 10);
 }
 
 void draw()
