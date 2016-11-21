@@ -9,6 +9,8 @@ class Sphere
   color sColor = color(0, 255, 255);
   color aColor = color(0, 100, 255);
   
+  boolean alert = false;
+  
   Sphere(float centerX, float centerY, float radius)
   {
     this.centerX = centerX;
@@ -22,8 +24,17 @@ class Sphere
   void render()
   {
     fill(0);
-    stroke(sColor);
+    //stroke(sColor);
     strokeWeight(1);
+    
+    // toggle alert system
+    if ( checkKey('a') ) {
+      alert = !alert;
+    }
+    
+    if (alert) {
+      stroke(255, 0, 0);
+    }
     
     // draw the sphere
     pushMatrix();
