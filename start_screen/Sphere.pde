@@ -9,6 +9,9 @@ class Sphere
   color sColor = color(0, 255, 255);
   color aColor = color(0, 100, 255);
   
+  PImage earth;
+  PShape globe;
+  
   Sphere(float centerX, float centerY, float radius)
   {
     this.centerX = centerX;
@@ -17,6 +20,10 @@ class Sphere
     
     arcR = (2 * radius) + 40;
     theta = 0;
+    
+    earth = loadImage("earth.jpg");
+    globe = createShape(SPHERE, radius);
+    globe.setTexture(earth);
   }
   
   void render()
@@ -28,10 +35,11 @@ class Sphere
     // draw the sphere
     pushMatrix();
     translate(centerX, centerY);
-    rotateX(theta);
+    //rotateX(theta);
     rotateY(theta);
-    rotateZ(theta);
-    sphere(radius);
+    //rotateZ(theta);
+    texture(earth);
+    shape(globe);
     popMatrix();
     
     //draw the arc
