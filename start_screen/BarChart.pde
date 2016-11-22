@@ -28,14 +28,13 @@ class BarChart
     {
       for (int i = 0; i < barCount; i++)
       {
-        if (data.get(i) < chartHeight) {
+        if (data.get(i) < chartHeight)
           data.add(i, 5);
-        }
-        else {
+        else
           data.add(i, random(0, 30) * -1);
-        }
       }
     }
+    
     // randomize data
     else if (frameCount % 5 == 0)
     {

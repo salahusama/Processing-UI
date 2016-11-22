@@ -5,6 +5,7 @@ Box mini1;
 Box mini2;
 Sphere ball;
 BarChart chart1;
+Ship ship;
 
 int state = 0; // chnages the state of the program from loading, UI, exit, etc
 
@@ -23,6 +24,11 @@ void setup()
   chart1 = new BarChart(menu.startX + 14 * backGrid.cellWidth, menu.startY + 13 * backGrid.cellHeight, 200, 100, 10);
   mini1 = new Box(backGrid.cellWidth * 2, backGrid.cellHeight * 16, backGrid.cellWidth * 6, backGrid.cellHeight * 3);
   mini2 = new Box(backGrid.cellWidth * 12, mini1.startY, mini1.bWidth, mini1.bHeight);
+  
+  float shipX = menu.startX + menu.bWidth / 2;
+  float shipY = menu.startY + menu.bHeight / 2;
+  float shipSize = 0.5 * menu.bHeight;
+  ship = new Ship(shipX, shipY, shipSize);
 }
 
 void draw()
@@ -41,6 +47,7 @@ void draw()
       // draw content after box is fully drawn
       if (menu.drawn == true)
       {
+        ship.display();
         chart1.display();
         mini1.render();
         mini2.render();

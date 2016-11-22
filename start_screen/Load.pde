@@ -9,16 +9,12 @@ class Loading
   boolean grow = true;
   color sColor = color(0, 255, 255);
   
-  PImage earth;
-  
   Loading()
   {
     centerX = width / 2;
     centerY = height / 2;
     radius = 0;
     theta = 0;
-    
-    earth = loadImage("earth.jpg");
   }
   
   void render()
@@ -27,17 +23,14 @@ class Loading
     stroke(sColor);
     strokeWeight(1);
     
-    PShape globe;
-    globe = createShape(SPHERE, radius);
-    globe.setTexture(earth);
-    
     // draw the sphere
-    pushMatrix();
+    pushMatrix(); //<>//
     translate(centerX, centerY);
     //rotateX(theta);
     rotateY(theta);
     //rotateZ(theta);
-    shape(globe);
+    sphere(radius);
+    
     popMatrix();
      
     theta += 0.01;
