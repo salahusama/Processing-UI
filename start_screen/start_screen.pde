@@ -1,7 +1,3 @@
-import processing.sound.*;
-
-WhiteNoise noise = new WhiteNoise(this);
-
 Grid backGrid;
 Loading loadingScreen;
 Box menu;
