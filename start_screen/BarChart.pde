@@ -20,10 +20,12 @@ class BarChart
       // add random values from 0 to maximum
       data.append( random(0, chartHeight) );
     }
+    
+    
   }
   
   void display()
-  {
+  { 
     if ( checkKey(' ') )
     {
       for (int i = 0; i < barCount; i++)
