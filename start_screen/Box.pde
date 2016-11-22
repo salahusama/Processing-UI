@@ -32,7 +32,7 @@ class Box
     box = createShape();
     box.beginShape();
     box.stroke(bColor);
-    box.noFill();
+    box.fill(255, 20);
     box.strokeWeight(3);
     
     box.vertex(0, 0);
