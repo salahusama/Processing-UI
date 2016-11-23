@@ -17,7 +17,9 @@ class Ship
     radius = size / 2;
     theta = 0;
     
-    nav = new Nav(x, y, size);
+    // distance between center of ship and furthest corner of  ship is the radius of nav
+    float len = dist(0, 0, -size, size);
+    nav = new Nav(x, y, len);
     
     create();
   }
@@ -47,12 +49,5 @@ class Ship
     popMatrix();
     
     nav.display();
-    
-    if (checkKey('a')) {
-      theta += -0.1;
-    }
-    if (checkKey('d')) {
-      theta += 0.1;
-    }
   }
 }

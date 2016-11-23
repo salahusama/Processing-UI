@@ -35,6 +35,9 @@ class Nav
     //
     stroke(255);
     strokeWeight(5);
+    noFill();
+    
+    ellipse(0, 0, diameter + gap, diameter + gap);
     
     line(0, -radius1 , 0, -radius2 );
     line(0, radius1, 0, radius2);
@@ -58,10 +61,10 @@ class Nav
     popMatrix();
     
     if ( checkKey('d') ) {
-      theta += -0.1;
+      theta += -0.01;
     }
     if ( checkKey('a') ) {
-      theta += 0.1;
+      theta += 0.01;
     }
   }
   
