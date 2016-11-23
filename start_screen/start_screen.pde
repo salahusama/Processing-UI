@@ -7,7 +7,7 @@ Sphere ball;
 BarChart chart1;
 Ship ship;
 
-int state = 1; // chnages the state of the program from loading, UI, exit, etc
+int state = 0; // chnages the state of the program from loading, UI, exit, etc
 
 void setup()
 {
