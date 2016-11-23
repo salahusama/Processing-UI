@@ -3,7 +3,8 @@ class Nav
   float cx, cy;
   float theta;
   float diameter;
-  float radius;
+  float radius1;
+  float radius2;
   float gap;
   float speed = 5;
   
@@ -15,9 +16,11 @@ class Nav
     this.cy = cy;
     this.diameter = diameter;
     
-    radius = diameter / 2;
     theta = 0;
-    gap = 0.2 * radius;
+    
+    gap = 0.1 * diameter;
+    radius1 = diameter / 2 + gap;
+    radius2 = diameter / 2 + 2 * gap;
   }
   
   void display()
@@ -33,24 +36,24 @@ class Nav
     stroke(255);
     strokeWeight(5);
     
-    line(0, 0 - gap, 0, - radius);
-    line(0, 0 + gap, 0, radius);
+    line(0, -radius1 , 0, -radius2 );
+    line(0, radius1, 0, radius2);
     
-    line(gap, 0, radius, 0);
-    line(- gap, 0, - radius, 0);
+    line(radius1, 0, radius2, 0);
+    line(-radius1, 0, -radius2, 0);
     
     fill(255, 255, 0);
     textSize(textSize);
     
     textAlign(CENTER, BOTTOM);
-    text("N", 0, - (radius + textSize));
+    text("N", 0, -(radius2 + textSize));
     textAlign(CENTER, TOP);
-    text("S", 0, (radius + textSize));
+    text("S", 0, (radius2 + textSize));
     
     textAlign(RIGHT, CENTER);
-    text("E", (radius + 2 * textSize), 0);
+    text("E", (radius2 + 2 * textSize), 0);
     textAlign(LEFT, CENTER);
-    text("W", - (radius + 2 * textSize), 0);
+    text("W", - (radius2 + 2 * textSize), 0);
     
     popMatrix();
     

@@ -7,6 +7,7 @@ class Ship
   float speed = 5;
   
   PShape shape;
+  Nav nav;
   
   Ship(float x, float y, float size)
   {
@@ -15,6 +16,9 @@ class Ship
     this.size = size;
     radius = size / 2;
     theta = 0;
+    
+    nav = new Nav(x, y, size);
+    
     create();
   }
   
@@ -41,6 +45,8 @@ class Ship
     translate(x, y);
     shape(shape, 0, 0);
     popMatrix();
+    
+    nav.display();
     
     if (checkKey('a')) {
       theta += -0.1;

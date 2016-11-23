@@ -6,7 +6,6 @@ Box mini2;
 Sphere ball;
 BarChart chart1;
 Ship ship;
-Nav nav;
 
 int state = 1; // chnages the state of the program from loading, UI, exit, etc
 
@@ -31,7 +30,6 @@ void setup()
   float shipSize = 0.5 * menu.bHeight;
   ship = new Ship(shipX, shipY, shipSize);
   
-  nav = new Nav(shipX, shipY, ship.size);
 }
 
 void draw()
@@ -51,7 +49,6 @@ void draw()
       if (menu.drawn == true)
       {
         ship.display();
-        nav.display();
         chart1.display();
         mini1.render();
         mini2.render();
