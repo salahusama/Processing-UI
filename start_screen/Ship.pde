@@ -45,9 +45,17 @@ class Ship
   {
     pushMatrix();
     translate(x, y);
+    rotate(theta);
     shape(shape, 0, 0);
     popMatrix();
     
     nav.display();
+    
+    if ( checkKey('a') ) {
+      theta += -0.005;
+    }
+    if ( checkKey('d') ) {
+      theta += 0.005;
+    }
   }
 }

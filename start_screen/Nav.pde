@@ -29,7 +29,7 @@ class Nav
     
     pushMatrix();
     translate(cx, cy);
-    rotate(theta);
+    rotate(-ship.theta);
     
     // create shape
     //
@@ -59,13 +59,6 @@ class Nav
     text("W", - (radius2 + 2 * textSize), 0);
     
     popMatrix();
-    
-    if ( checkKey('d') ) {
-      theta += -0.01;
-    }
-    if ( checkKey('a') ) {
-      theta += 0.01;
-    }
   }
   
 }

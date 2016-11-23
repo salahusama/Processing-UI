@@ -27,7 +27,7 @@ void setup()
   
   float shipX = menu.startX + menu.bWidth / 2;
   float shipY = menu.startY + menu.bHeight / 2;
-  float shipSize = 0.5 * menu.bHeight;
+  float shipSize = 0.2 * menu.bHeight;
   ship = new Ship(shipX, shipY, shipSize);
   
 }
