@@ -8,6 +8,7 @@ class Ship
   
   PShape shape;
   Nav nav;
+  float botLen;
   
   Ship(float x, float y, float size)
   {
@@ -40,6 +41,8 @@ class Ship
     shape.vertex(radius, radius);
     shape.vertex(radius/3, radius/2);
     shape.vertex(-radius/3, radius/2);
+    
+    botLen = dist(radius/3, radius/2, -radius/3, radius/2);
     
     shape.endShape(CLOSE);
   }
@@ -74,8 +77,8 @@ class Ship
   void boost()
   {
     float lineY = radius / 2 + 10;
-    float x1 = -20;
-    float x2 = 20;
+    float x1 = -botLen / 3;
+    float x2 = botLen / 3;
     float alpha = 150;
     
     while ( lineY < (2 * size / 3) )
@@ -93,7 +96,7 @@ class Ship
     {
       // clearer line
       stroke(0, 255, 0, clearAlpha);
-      strokeWeight(2);
+      strokeWeight(5);
       line(clearX1, clearY, clearX2, clearY);
       
       clearY += 2.5;
@@ -104,8 +107,8 @@ class Ship
     else 
     {
       clearY = radius / 2 + 10;
-      clearX1 = -20;
-      clearX2 = 20;
+      clearX1 = -botLen / 3;
+      clearX2 = botLen / 3;
       clearAlpha = 255;
     }
     
