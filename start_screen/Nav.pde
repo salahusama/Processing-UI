@@ -1,20 +1,23 @@
 class Nav
 {
-  float x, y;
+  float cx, cy;
   float theta;
   float diameter;
+  float radius;
+  float gap;
   float speed = 5;
   
   PShape shape;
   
   Nav(float x, float y, float diameter)
   {
-    this.x = x;
-    this.y = y;
+    this.cx = x;
+    this.cy = y;
     this.diameter = diameter;
     
+    radius = diameter / 2;
     theta = 0;
-    
+    gap = 0.2 * radius;
     create();
   }
   
@@ -27,7 +30,11 @@ class Nav
     shape.noFill();
     shape.strokeWeight(5);
     
-    line(x, y, x, y - diameter/2);
+    line(cx, cy - gap, cx, cy - radius);
+    line(cx, cy + gap, cx, cy + radius);
+    
+    line(cx + gap, cy, cx + radius, cy);
+    line(cx - gap, cy, cx - radius, cy);
     
     shape.endShape();
   }
@@ -35,14 +42,15 @@ class Nav
   void display()
   {
     pushMatrix();
-    translate(x, y);
+    translate(cx, cy);
+    rotate(theta);
     shape(shape, 0, 0);
     popMatrix();
     
-    if (checkKey('a')) {
+    if ( checkKey('a') ) {
       theta += -0.1;
     }
-    if (checkKey('d')) {
+    if ( checkKey('d') ) {
       theta += 0.1;
     }
   }
