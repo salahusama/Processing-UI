@@ -49,13 +49,13 @@ class BarChart
     float barWidth = chartWidth / barCount;
     float barHeight;
     
+    noStroke();
     for (int i = 0; i < barCount; i++)
     {
       barHeight = -data.get(i);
       // start y position is the same, increment the x position by barWidth
       float startX = this.startX + (barWidth * i);
-      //stroke(255);
-      strokeWeight(1);
+      
       if ( data.get(i) > 0.8 * chartHeight ) {
         fill(255, 0, 0);
       }
@@ -76,6 +76,8 @@ class BarChart
     
     //
     fill(255);
-    text("Press Space for Full Throtle", startX + 20, startY - chartHeight - 10);
+    textSize(15);
+    textAlign(CENTER, BOTTOM);
+    text("Press Space for Full Throtle", startX + chartWidth / 2, startY - chartHeight - 10);
   }
 }

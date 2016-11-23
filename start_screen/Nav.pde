@@ -9,26 +9,29 @@ class Nav
   
   PShape shape;
   
-  Nav(float x, float y, float diameter)
+  Nav(float cx, float cy, float diameter)
   {
-    this.cx = x;
-    this.cy = y;
+    this.cx = cx;
+    this.cy = cy;
     this.diameter = diameter;
     
     radius = diameter / 2;
     theta = 0;
     gap = 0.2 * radius;
-    create();
   }
   
-  void create()
+  void display()
   {
-    shape = createShape();
-    shape.beginShape();
+    float textSize = 20;
     
-    shape.stroke(255);
-    shape.noFill();
-    shape.strokeWeight(5);
+    pushMatrix();
+    translate(cx, cy);
+    rotate(theta);
+    
+    // create shape
+    //
+    stroke(255);
+    strokeWeight(5);
     
     line(cx, cy - gap, cx, cy - radius);
     line(cx, cy + gap, cx, cy + radius);
@@ -36,15 +39,19 @@ class Nav
     line(cx + gap, cy, cx + radius, cy);
     line(cx - gap, cy, cx - radius, cy);
     
-    shape.endShape();
-  }
-  
-  void display()
-  {
-    pushMatrix();
-    translate(cx, cy);
-    rotate(theta);
-    shape(shape, 0, 0);
+    fill(255, 255, 0);
+    textSize(textSize);
+    
+    textAlign(CENTER, BOTTOM);
+    text("N", cx, cy - (radius + textSize));
+    textAlign(CENTER, TOP);
+    text("S", cx, cy + (radius + textSize));
+    
+    textAlign(RIGHT, CENTER);
+    text("E", cx + (radius + 2*textSize), cy);
+    textAlign(LEFT, CENTER);
+    text("W", cx - (radius + 2*textSize), cy);
+    
     popMatrix();
     
     if ( checkKey('a') ) {
@@ -54,4 +61,5 @@ class Nav
       theta += 0.1;
     }
   }
+  
 }
