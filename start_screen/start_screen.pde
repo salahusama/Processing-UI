@@ -31,7 +31,7 @@ void setup()
   float shipSize = 0.5 * menu.bHeight;
   ship = new Ship(shipX, shipY, shipSize);
   
-  nav = new Nav(width / 2, height / 2, ship.size);
+  nav = new Nav(shipX, shipY, ship.size);
 }
 
 void draw()

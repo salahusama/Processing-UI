@@ -33,31 +33,31 @@ class Nav
     stroke(255);
     strokeWeight(5);
     
-    line(cx, cy - gap, cx, cy - radius);
-    line(cx, cy + gap, cx, cy + radius);
+    line(0, 0 - gap, 0, - radius);
+    line(0, 0 + gap, 0, radius);
     
-    line(cx + gap, cy, cx + radius, cy);
-    line(cx - gap, cy, cx - radius, cy);
+    line(gap, 0, radius, 0);
+    line(- gap, 0, - radius, 0);
     
     fill(255, 255, 0);
     textSize(textSize);
     
     textAlign(CENTER, BOTTOM);
-    text("N", cx, cy - (radius + textSize));
+    text("N", 0, - (radius + textSize));
     textAlign(CENTER, TOP);
-    text("S", cx, cy + (radius + textSize));
+    text("S", 0, (radius + textSize));
     
     textAlign(RIGHT, CENTER);
-    text("E", cx + (radius + 2*textSize), cy);
+    text("E", (radius + 2 * textSize), 0);
     textAlign(LEFT, CENTER);
-    text("W", cx - (radius + 2*textSize), cy);
+    text("W", - (radius + 2 * textSize), 0);
     
     popMatrix();
     
-    if ( checkKey('a') ) {
+    if ( checkKey('d') ) {
       theta += -0.1;
     }
-    if ( checkKey('d') ) {
+    if ( checkKey('a') ) {
       theta += 0.1;
     }
   }
