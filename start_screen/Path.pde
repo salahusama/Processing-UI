@@ -33,7 +33,7 @@ class Path
     
     for (int i = 0; i < nodeCount; i++)
     {
-      nodes.add( new Node(nodeX, nodeY, startX, startX + pWidth, 0.6 * step) );
+      nodes.add( new Node(nodeX + random(-pWidth/4, pWidth/4), nodeY, startX, startX + pWidth, 0.6 * step) );
       nodeY -= step;
     }
   }
@@ -44,6 +44,13 @@ class Path
      noFill();
      stroke(255);
      rect(startX, startY, pWidth, -pHeight);
+     
+     // write text
+     // draw text
+      fill(255);
+      textSize(15);
+      textAlign(CENTER, TOP);
+      text("Drag nodes to edit path", startX + pWidth / 2, startY + 10);
      
      // draw nodes
      for (Node n: nodes)
