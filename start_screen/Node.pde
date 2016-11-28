@@ -50,12 +50,10 @@ class Node
     if (follow == true)
     {
       x = mouseX;
-      if (x < limit1)
-      {
+      if (x < limit1) {
         x = limit1 + big;
       }
-      if (x > limit2)
-      {
+      if (x > limit2) {
         x = limit2 - big;
       }
     }

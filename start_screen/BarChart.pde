@@ -74,7 +74,7 @@ class BarChart
     strokeWeight(1);
     rect(startX, startY, chartWidth, -chartHeight);
     
-    // draw text
+    //
     fill(255);
     textSize(15);
     textAlign(CENTER, BOTTOM);
