@@ -8,7 +8,7 @@ BarChart chart1;
 Ship ship;
 Path path;
 
-int state = 1; // changes the state of the program from loading, UI, exit, etc
+int state = 0; // changes the state of the program from loading, UI, exit, etc
 
 void setup()
 {
