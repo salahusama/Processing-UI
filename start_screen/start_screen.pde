@@ -7,6 +7,7 @@ Sphere ball;
 BarChart chart1;
 Ship ship;
 Path path;
+Struct awesome;
 
 int state = 0; // changes the state of the program from loading, UI, exit, etc
 
@@ -36,6 +37,11 @@ void setup()
   float pathW = 4 * grid.cellWidth;
   float pathH = 5 * grid.cellHeight;
   path = new Path(pathX, pathY, pathW, pathH, 10);
+  
+  float structX = menu.startX + 15 * grid.cellWidth;
+  float structY = menu.startY +  4 * grid.cellHeight;
+  float structS = 4 * grid.cellWidth;
+  awesome = new Struct(structX, structY, structS);
 }
 
 void draw()
@@ -57,6 +63,7 @@ void draw()
         ship.display();
         chart1.display();
         path.render();
+        awesome.render();
         mini1.render();
         mini2.render();
       }
