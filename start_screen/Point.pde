@@ -16,7 +16,7 @@ class Point
     
     smallSize = 0.7 * size;
     
-    status = random(100);
+    status = random(0, 100);
   }
   
   Point(float cx, float cy)
@@ -26,6 +26,7 @@ class Point
     c = color(50, 255, 150);
     
     smallSize = 0.3 * size;
+    status = random(0, 100);
   }
   
   void draw()
@@ -56,7 +57,7 @@ class Point
       text("Enemy", x + boxWidth/2, y + boxHeight/2);
     }
     else {
-      text("Ally`", x + boxWidth/2, y + boxHeight/2);
+      text("Ally", x + boxWidth/2, y + boxHeight/2);
     }
   }
 }

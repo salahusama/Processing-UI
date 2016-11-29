@@ -1,15 +1,15 @@
 Grid grid;
 Loading loadingScreen;
 Box menu;
-Box mini1;
-Box mini2;
+TBox mini1;
+TBox mini2;
 Sphere ball;
 BarChart chart1;
 Ship ship;
 Path path;
 Struct awesome;
 
-int state = 0; // changes the state of the program from loading, UI, exit, etc
+int state = 1; // changes the state of the program from loading, UI, exit, etc
 
 void setup()
 {
@@ -24,8 +24,8 @@ void setup()
   menu = new Box(grid.cellWidth, grid.cellHeight, width - (2*grid.cellWidth), height - (6*grid.cellHeight));
   ball = new Sphere(width / 2, height - 50, 80);
   chart1 = new BarChart(menu.startX + 14 * grid.cellWidth, menu.startY + 13 * grid.cellHeight, 200, 100, 10);
-  mini1 = new Box(grid.cellWidth * 2, grid.cellHeight * 16, grid.cellWidth * 6, grid.cellHeight * 3);
-  mini2 = new Box(grid.cellWidth * 12, mini1.startY, mini1.bWidth, mini1.bHeight);
+  mini1 = new TBox(grid.cellWidth * 2, grid.cellHeight * 16, grid.cellWidth * 6, grid.cellHeight * 3);
+  mini2 = new TBox(grid.cellWidth * 12, mini1.startY, mini1.bWidth, mini1.bHeight);
   
   float shipX = menu.startX + menu.bWidth / 2;
   float shipY = menu.startY + menu.bHeight / 2;
@@ -66,7 +66,21 @@ void draw()
         awesome.render();
         
         mini1.render();
+        if (mini1.drawn == true)
+        {
+          mini1.write("Hello Captain!", color(0, 255, 255));
+        }
+        
         mini2.render();
+        if (mini2.drawn == true)
+        {
+          if ( checkKey(' ') ) {
+            mini2.write("THAT'S TOO FAST!!", color(255, 0, 0));
+          }
+          else {
+            mini2.write("All is Good", color(0, 255, 255));
+          }
+        }
       }
       break;
   }
