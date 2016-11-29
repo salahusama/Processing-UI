@@ -15,7 +15,7 @@ class Orbit
     theta = random(0, TWO_PI);
     this.speed = speed;
     
-    c = color(random(50), random(255), random(255));
+    c = color(255);
     
     pos = new PVector(cx, cy);
     p = new Point(pos.x, pos.y);

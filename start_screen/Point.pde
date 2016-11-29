@@ -9,7 +9,7 @@ class Point
   {
     pos = new PVector(cx, cy);
     this.size = size;
-    this.c = c;
+    this.c = color(random(255), random(255), random(255));
     
     smallSize = 0.7 * size;
   }
@@ -26,11 +26,11 @@ class Point
   void draw()
   {
     noFill();
-    stroke(255);
+    stroke(c);
     strokeWeight(2);
     ellipse(pos.x, pos.y, size, size);
     
-    fill(c);
+    fill(255, 0, 0);
     noStroke();
     ellipse(pos.x, pos.y, smallSize, smallSize);
   }
