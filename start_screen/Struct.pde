@@ -51,8 +51,12 @@ class Struct
       stroke(255, 255, 0);
       strokeWeight(1);
       line(o.p.pos.x, o.p.pos.y, main.p.pos.x, main.p.pos.y);
+      
+      // show more information if i pressed
+      if ( checkKey('i') )
+      {
+        o.p.textBox();
+      }
     }
-    
-    
   }
 }

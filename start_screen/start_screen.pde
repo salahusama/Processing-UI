@@ -64,6 +64,7 @@ void draw()
         chart1.display();
         path.render();
         awesome.render();
+        
         mini1.render();
         mini2.render();
       }
